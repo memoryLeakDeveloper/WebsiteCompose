@@ -1,6 +1,6 @@
 package com.compose.website.styles
 
-import com.stevdza_san.website.util.Res
+import com.compose.website.util.Res
 import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -39,9 +39,10 @@ val ThemeIconStyle by ComponentStyle {
                 if (colorMode.isLight) Colors.White
                 else Res.Theme.DARK_BLUE.color
             )
-            .transition(
-                CSSTransition(property = "background", duration = 300.ms)
-            )
+        //ripple?
+//            .transition(
+//                CSSTransition(property = "background", duration = 300.ms)
+//            )
     }
 
     hover {

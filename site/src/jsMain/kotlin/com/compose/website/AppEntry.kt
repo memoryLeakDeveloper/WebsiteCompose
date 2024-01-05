@@ -1,7 +1,7 @@
 package com.compose.website
 
 import androidx.compose.runtime.*
-import com.stevdza_san.website.util.Res
+import com.compose.website.util.Res
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.silk.SilkApp

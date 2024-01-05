@@ -1,9 +1,12 @@
 package com.compose.website.pages
 
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import com.compose.website.components.ProfileCard
 import com.compose.website.components.ThemeSwitchButton
-import com.stevdza_san.website.util.Res
+import com.compose.website.util.Res
 import com.varabyte.kobweb.compose.css.functions.LinearGradient
 import com.varabyte.kobweb.compose.css.functions.linearGradient
 import com.varabyte.kobweb.compose.foundation.layout.Box

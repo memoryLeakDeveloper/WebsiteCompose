@@ -1,14 +1,14 @@
 package com.compose.website.components
 
 import androidx.compose.runtime.Composable
-import com.stevdza_san.website.util.Res
+import com.compose.website.util.Res
+import com.compose.website.util.isMobile
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
-import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.percent
@@ -16,16 +16,16 @@ import org.jetbrains.compose.web.css.px
 
 @Composable
 fun ProfileCard(colorMode: ColorMode) {
+
     val breakpoint = rememberBreakpoint()
+    val isMobile = breakpoint.isMobile()
+
     SimpleGrid(
         numColumns = numColumns(base = 1, md = 2),
         modifier = Modifier
-            .fillMaxWidth(
-                if (breakpoint <= Breakpoint.MD) 100.percent
-                else Res.Dimens.MAX_CARD_WIDTH.px
-            )
+            .fillMaxWidth(if (isMobile) 100.percent else Res.Dimens.MAX_CARD_WIDTH.px)
             .thenIf(
-                condition = breakpoint > Breakpoint.MD,
+                condition = isMobile,
                 other = Modifier.height(Res.Dimens.MAX_CARD_HEIGHT.px)
             )
             .boxShadow(

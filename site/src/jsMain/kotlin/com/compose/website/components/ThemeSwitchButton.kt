@@ -2,9 +2,9 @@ package com.compose.website.components
 
 import androidx.compose.runtime.Composable
 import com.compose.website.styles.ThemeIconStyle
-import com.stevdza_san.website.util.Res
-import com.stevdza_san.website.util.Res.Dimens.ICON_SIZE
-import com.stevdza_san.website.util.Res.Dimens.ICON_SIZE_LG
+import com.compose.website.util.Res
+import com.compose.website.util.Res.Dimens.ICON_SIZE
+import com.compose.website.util.Res.Dimens.ICON_SIZE_LG
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -22,10 +22,7 @@ import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.px
 
 @Composable
-fun ThemeSwitchButton(
-    colorMode: ColorMode,
-    onClick: () -> Unit
-) {
+fun ThemeSwitchButton(colorMode: ColorMode, onClick: () -> Unit) {
     val breakpoint = rememberBreakpoint()
     Column(
         modifier = Modifier
@@ -41,6 +38,7 @@ fun ThemeSwitchButton(
         IconButton(
             modifier = ThemeIconStyle.toModifier()
                 .margin(all = if (breakpoint > Breakpoint.SM) 24.px else 16.px)
+
                 .styleModifier {
                     property("pointer-events", "auto")
                 },

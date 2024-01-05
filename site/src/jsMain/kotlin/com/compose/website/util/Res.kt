@@ -1,4 +1,4 @@
-package com.stevdza_san.website.util
+package com.compose.website.util
 
 import com.varabyte.kobweb.compose.ui.graphics.Color
 
@@ -16,14 +16,9 @@ object Res {
     }
 
     object Icon {
-        const val EMAIL_LIGHT = "mail.svg"
-        const val EMAIL_DARK = "mail_light.svg"
+        const val TELEGRAM = "telegram_icon.svg"
         const val GITHUB = "github.svg"
         const val GITHUB_LIGHT = "github_light.svg"
-        const val INSTAGRAM = "instagram.svg"
-        const val INSTAGRAM_LIGHT = "instagram_light.svg"
-        const val GITLAB = "gitlab.svg"
-        const val GITLAB_LIGHT = "gitlab_light.svg"
         const val SUN = "sun.svg"
         const val MOON = "moon.svg"
     }
@@ -35,17 +30,15 @@ object Res {
     object String {
         const val NAME = "Marchenko Alexander"
         const val PROFESSION = "Android Native Developer"
-        const val ABOUT_ME =
-            "Lorem ipsum dolor sit amet, nisl tempus lorem adipiscing elit. Donec sollicitudin blandit tellus, ac sagittis ligula egestas consequat. Lorem ipsum dolor sit amet."
-        const val BUTTON_TEXT = "Get in touch"
+        const val BUTTON_TEXT = "Write me in Telegram"
         const val ROBOTO_CONDENSED = "RobotoCondensedBold"
         const val ROBOTO_REGULAR = "RobotoRegular"
-        const val MY_EMAIL = "mailto:marchenko.sasha95@mail.ru"
+        const val TELEGRAM_LINK = "https://t.me/san9Stone"
         const val SAVED_THEME = "theme"
     }
 
     object Dimens {
-        const val BORDER_RADIUS = 8
+        const val BORDER_RADIUS = 10
         const val MAX_CARD_WIDTH = 1000
         const val MAX_CARD_HEIGHT = 600
         const val ICON_SIZE = 24

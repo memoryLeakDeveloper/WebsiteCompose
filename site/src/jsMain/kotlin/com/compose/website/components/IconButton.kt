@@ -1,8 +1,8 @@
 package com.compose.website.components
 
 import androidx.compose.runtime.Composable
-import com.stevdza_san.website.util.Res
-import com.stevdza_san.website.util.Res.Dimens.BORDER_RADIUS
+import com.compose.website.util.Res
+import com.compose.website.util.Res.Dimens.BORDER_RADIUS
 import com.varabyte.kobweb.compose.css.Cursor
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -37,7 +37,7 @@ fun IconButton(
                     else Res.Theme.SOCIAL_ICON_BACKGROUND_DARK.color
                 )
                 .onClick { onClick?.invoke() }
-        ){
+        ) {
             Image(
                 modifier = Modifier.size(iconSize),
                 src = icon

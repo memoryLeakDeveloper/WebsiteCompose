@@ -1,7 +1,8 @@
 package com.compose.website.components
 
 import androidx.compose.runtime.Composable
-import com.stevdza_san.website.util.Res
+import com.compose.website.util.Res
+import com.compose.website.util.isMobile
 import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -16,11 +17,14 @@ import org.jetbrains.compose.web.css.px
 
 @Composable
 fun RightSide(breakpoint: Breakpoint) {
+
+    val isMobile = breakpoint.isMobile()
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .thenIf(
-                condition = breakpoint > Breakpoint.MD,
+                condition = !isMobile,
                 other = Modifier.height((Res.Dimens.MAX_CARD_HEIGHT - 24).px)
             )
     ) {

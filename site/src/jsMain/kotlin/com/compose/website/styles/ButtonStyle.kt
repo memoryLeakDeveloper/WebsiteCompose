@@ -13,7 +13,6 @@ import org.jetbrains.compose.web.css.px
 val ButtonStyle by ComponentStyle {
     base {
         Modifier
-            .padding(leftRight = 12.px)
             .transition(CSSTransition(property = TransitionProperty.All, duration = 300.ms))
     }
     hover {
