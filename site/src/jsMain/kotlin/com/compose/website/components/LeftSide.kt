@@ -17,6 +17,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.graphics.Image
+import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.components.style.toModifier
 import com.varabyte.kobweb.silk.components.text.SpanText
@@ -43,7 +44,7 @@ fun LeftSide(colorMode: ColorMode, breakpoint: Breakpoint) {
                     .margin(bottom = 12.px)
                     .fontFamily(Res.String.ROBOTO_CONDENSED)
                     .color(if (colorMode.isLight) Colors.Black else Colors.White)
-                    .fontSize(50.px)
+                    .fontSize(40.px)
                     .fontWeight(FontWeight.Bold)
                     .textAlign(
                         if (isMobile) TextAlign.Center
@@ -54,25 +55,39 @@ fun LeftSide(colorMode: ColorMode, breakpoint: Breakpoint) {
                 text = Res.String.PROFESSION,
                 modifier = Modifier
                     .margin(bottom = 24.px)
+                    .fontWeight(FontWeight.Bold)
+                    .fontFamily(Res.String.ROBOTO_REGULAR)
+                    .color(if (colorMode.isLight) Colors.Black else Colors.White)
+                    .fontSize(18.px)
+            )
+            SpanText(
+                text = Res.String.SUMMARY,
+                modifier = Modifier
+                    .margin(bottom = 6.px)
+                    .fontFamily(Res.String.ROBOTO_REGULAR)
+                    .color(if (colorMode.isLight) Colors.Black else Colors.White)
+                    .fontSize(18.px)
+            )
+            Surface(
+                modifier = Modifier
+                    .height(1.px)
+                    .fillMaxWidth()
+                    .margin(bottom = 6.px)
+                    .background(Res.Theme.BLACK.color)
+                    .align(
+                        if (breakpoint <= Breakpoint.SM) Alignment.CenterHorizontally
+                        else Alignment.Start
+                    )
+            ) {}
+            SpanText(
+                text = Res.String.DESCRIPTION,
+                modifier = Modifier
+                    .margin(bottom = 24.px)
                     .fontFamily(Res.String.ROBOTO_REGULAR)
                     .color(if (colorMode.isLight) Colors.Black else Colors.White)
                     .fontSize(18.px)
             )
         }
-//        Surface(
-//            modifier = Modifier
-//                .height(4.px)
-//                .width(40.px)
-//                .margin(bottom = 24.px)
-//                .background(
-//                    if (colorMode.isLight) Res.Theme.BLUE.color
-//                    else Res.Theme.LIGHT_BLUE.color
-//                )
-//                .align(
-//                    if (breakpoint <= Breakpoint.SM) Alignment.CenterHorizontally
-//                    else Alignment.Start
-//                )
-//        ) {}
         Column {
             Button(
                 modifier = ButtonStyle.toModifier().margin(bottom = 20.px),

@@ -3,36 +3,60 @@ package com.compose.website.components
 import androidx.compose.runtime.Composable
 import com.compose.website.util.Res
 import com.compose.website.util.isMobile
-import com.varabyte.kobweb.compose.css.ObjectFit
-import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.foundation.layout.Arrangement
+import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
+import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
-import com.varabyte.kobweb.compose.ui.modifiers.height
-import com.varabyte.kobweb.compose.ui.modifiers.objectFit
-import com.varabyte.kobweb.compose.ui.thenIf
+import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.components.text.SpanText
+import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.px
 
 @Composable
-fun RightSide(breakpoint: Breakpoint) {
+fun RightSide(colorMode: ColorMode, breakpoint: Breakpoint) {
 
     val isMobile = breakpoint.isMobile()
 
-    Box(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .thenIf(
-                condition = !isMobile,
-                other = Modifier.height((Res.Dimens.MAX_CARD_HEIGHT - 24).px)
-            )
+            .fillMaxSize()
+            .padding(all = 50.px),
+        verticalArrangement = if (isMobile) Arrangement.Top else Arrangement.SpaceBetween,
+        horizontalAlignment = if (isMobile) Alignment.CenterHorizontally else Alignment.Start
     ) {
-        Image(
-            modifier = Modifier
-                .fillMaxSize()
-                .objectFit(ObjectFit.Cover),
-            src = Res.Image.PROFILE_PHOTO
-        )
+        Column {
+            SpanText(
+                text = Res.String.SKILLS,
+                modifier = Modifier
+                    .margin(bottom = 12.px)
+                    .fontFamily(Res.String.ROBOTO_CONDENSED)
+                    .color(if (colorMode.isLight) Colors.Black else Colors.White)
+                    .fontSize(24.px)
+                    .fontWeight(FontWeight.Bold)
+                    .textAlign(
+                        if (isMobile) TextAlign.Center
+                        else TextAlign.Start
+                    )
+            )
+            Res.String.LIST_SKILLS.forEach {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Image(src = Res.Icon.DOT, modifier = Modifier.size(10.px))
+                    SpanText(
+                        text = it,
+                        modifier = Modifier
+                            .fontFamily(Res.String.ROBOTO_REGULAR)
+                            .color(if (colorMode.isLight) Colors.Black else Colors.White)
+                            .fontSize(18.px)
+                            .margin(left = 10.px)
+                    )
+                }
+            }
+        }
     }
 }

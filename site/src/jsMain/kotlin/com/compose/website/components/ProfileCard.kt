@@ -26,7 +26,7 @@ fun ProfileCard(colorMode: ColorMode) {
             .fillMaxWidth(if (isMobile) 100.percent else Res.Dimens.MAX_CARD_WIDTH.px)
             .thenIf(
                 condition = isMobile,
-                other = Modifier.height(Res.Dimens.MAX_CARD_HEIGHT.px)
+                other = Modifier.height(if (isMobile) 90.percent else Res.Dimens.MAX_CARD_HEIGHT.px)
             )
             .boxShadow(
                 color = Colors.Black.copy(alpha = 10),
@@ -41,6 +41,6 @@ fun ProfileCard(colorMode: ColorMode) {
             )
     ) {
         LeftSide(colorMode = colorMode, breakpoint = breakpoint)
-        RightSide(breakpoint = breakpoint)
+        RightSide(colorMode = colorMode, breakpoint = breakpoint)
     }
 }
